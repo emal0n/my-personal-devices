@@ -12,17 +12,17 @@ function MyPcConfigRenderer({ appRef }) {
 				<div className="my-pc-info-father-container">
 					<div className="my-pc-info-container">
 						<div>
-							<img src="icons/selfie.png" style={{ width: "140px", height: "140px" }}></img>
+							<img src="icons/me.jpeg" style={{ width: "140px", height: "140px" }}></img>
 						</div>
 						<div className="my-pc-title2-container">
-							<a className="my-pc-title">Stefani</a>
-							<a>She/Her ➧ Computer Science ➧ 22y ➧ Developer </a>
+							<a className="my-pc-title">Edmundo.</a>
+							<a>Systems Development ➧ 21y</a>
 						</div>
 					</div>
 					<div className="my-pc-info-container-2">
 						<div className="my-pc-title2-container">
 							<a className="my-pc-title-2">Stacks:</a>
-							<a>Typescript/Javascript, Java, Python, SQL</a>
+							<a>Loading...:) return soon</a>
 						</div>
 					</div>
 				</div>
