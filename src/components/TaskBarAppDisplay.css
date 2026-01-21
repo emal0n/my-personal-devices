@@ -33,3 +33,31 @@
 	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
 	
 }
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+	.task-bar-app-display {
+		min-height: 36px;
+		padding: 4px 8px;
+	}
+
+	.task-bar-app-title {
+		font-size: 12px;
+	}
+
+	.task-bar-app-display {
+		cursor: default;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+@media (max-width: 480px) {
+	.task-bar-app-title {
+		font-size: 10px;
+	}
+
+	.task-bar-app-display {
+		padding: 3px 6px;
+		gap: 6px;
+	}
+}

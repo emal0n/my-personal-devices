@@ -8,6 +8,24 @@ body {
 	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151727), auto;
 }
 
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+	body {
+		overflow-x: auto;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	html {
+		overflow-x: auto;
+		overflow-y: auto;
+	}
+
+	* {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
 * {
 	font-family: "Courier New", Courier, monospace, "Courier New", monospace;
 }

@@ -366,3 +366,394 @@
 		--scale-offset-index: 20;
 	}
 }
+
+/* Media queries para dispositivos móveis */
+@media (max-width: 768px) {
+	.main {
+		--initial-scale: 0.2;
+		--scale-multiplier: 0.05;
+		scale: 0.25;
+		overflow-x: auto;
+		overflow-y: auto;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 10px;
+	}
+
+	.computer-crt-container {
+		width: 100%;
+		max-width: 1000px;
+		min-height: auto;
+		height: auto;
+	}
+
+	.lock-computer-crt-container {
+		width: 100%;
+		max-width: 1000px;
+		min-height: auto;
+		height: auto;
+	}
+
+	.computer-screen,
+	.lock-computer-screen-container {
+		width: 100%;
+		max-width: 800px;
+		height: auto;
+		min-height: 400px;
+		aspect-ratio: 4/3;
+	}
+
+	.computer-taskbar-container {
+		width: 100%;
+		max-width: 800px;
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+
+	.shadow,
+	.out-light,
+	.glitch-screen-effect {
+		width: 100%;
+		max-width: 800px;
+		height: auto;
+		aspect-ratio: 4/3;
+		top: auto;
+	}
+
+	.computer-screen-icons-container {
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	.computer-stand {
+		width: 80%;
+		max-width: 500px;
+	}
+
+	.computer-case {
+		width: 100%;
+		max-width: 1000px;
+	}
+
+	.computer-button-container {
+		right: 5%;
+		top: 20px;
+	}
+
+	.computer-screen-background {
+		object-fit: cover;
+	}
+
+	.pop-ups-container {
+		width: 100%;
+		max-width: 800px;
+		height: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.main {
+		scale: 0.2;
+		padding: 5px;
+	}
+
+	.computer-screen,
+	.lock-computer-screen-container {
+		min-height: 300px;
+		border-width: 15px;
+	}
+
+	.computer-button-container {
+		right: 3%;
+		top: 15px;
+	}
+
+	.computer-button {
+		width: 60px;
+	}
+
+	.computer-button-light {
+		width: 12px;
+		height: 12px;
+	}
+}
+
+/* Melhorias de toque para dispositivos móveis */
+@media (hover: none) and (pointer: coarse) {
+	.computer-button,
+	.computer-turn-button {
+		min-height: 44px;
+		min-width: 44px;
+	}
+
+	.app-interface-top-bar-min-icon,
+	.app-interface-top-bar-close-icon {
+		min-width: 32px;
+		min-height: 32px;
+		padding: 4px;
+	}
+
+	.icon-display-container {
+		min-width: 60px;
+		min-height: 60px;
+	}
+}
+
+/* Estilos para mockup de dispositivo móvel */
+.mobile-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.mobile-device-container {
+	position: relative;
+	width: 100%;
+	max-width: 420px;
+	height: 100%;
+	max-height: 900px;
+	background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+	border-radius: 40px;
+	padding: 15px;
+	box-shadow: 
+		0 20px 60px rgba(0, 0, 0, 0.5),
+		inset 0 0 0 3px #3a3a3a,
+		inset 0 0 0 5px #2a2a2a;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.mobile-screen-container {
+	width: 100%;
+	height: calc(100% - 80px);
+	background: #000;
+	border-radius: 30px;
+	overflow: hidden;
+	position: relative;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.mobile-screen {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	background: #000;
+}
+
+.mobile-screen-background {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.mobile-screen-icons-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.mobile-taskbar-container {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: calc(100% - 40px);
+	max-width: 350px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	background: rgba(189, 183, 192, 0.9);
+	border: 2px outset;
+	border-radius: 25px;
+	padding: 5px 10px;
+	z-index: 10000;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-button-container {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10001;
+}
+
+.mobile-home-button {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+	border: 3px solid #1a1a1a;
+	box-shadow: 
+		0 4px 8px rgba(0, 0, 0, 0.5),
+		inset 0 2px 4px rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	position: relative;
+}
+
+.mobile-home-button::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 20px;
+	height: 20px;
+	border: 2px solid #888;
+	border-radius: 4px;
+}
+
+.mobile-home-button:active {
+	box-shadow: 
+		inset 0 4px 8px rgba(0, 0, 0, 0.5),
+		0 2px 4px rgba(255, 255, 255, 0.1);
+	transform: scale(0.95);
+}
+
+/* Notch para dispositivos modernos */
+.mobile-device-container::before {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 150px;
+	height: 25px;
+	background: #000;
+	border-radius: 0 0 20px 20px;
+	z-index: 1000;
+}
+
+/* Botões laterais do dispositivo */
+.mobile-device-container::after {
+	content: "";
+	position: absolute;
+	left: -3px;
+	top: 30%;
+	width: 6px;
+	height: 60px;
+	background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+	border-radius: 3px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajustes para o conteúdo dentro do mockup móvel */
+.mobile-main .pop-ups-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.mobile-screen-icons-container {
+	position: absolute;
+	width: 100% !important;
+	height: 100% !important;
+	top: 0;
+	left: 0;
+}
+
+.mobile-main .date-time-container {
+	width: auto;
+	margin-top: auto;
+	bottom: 70px;
+	right: 15px;
+	font-size: 11px;
+}
+
+.mobile-main .volume-icon-container {
+	width: auto;
+	margin-top: auto;
+	margin-left: auto;
+	bottom: 70px;
+	left: 15px;
+	justify-content: flex-start;
+}
+
+.mobile-main .volume-icon-container img {
+	width: 24px;
+	height: 24px;
+}
+
+/* Ajustar tamanhos de janelas no mockup móvel */
+.mobile-main .app-interface-container {
+	max-width: 95%;
+	max-height: 75%;
+	min-width: 280px;
+}
+
+.mobile-main .computer-screen-icons-container {
+	width: 100% !important;
+	height: 100% !important;
+	position: relative;
+}
+
+/* Ajustar ícones no mockup móvel */
+.mobile-main .icon-display-container {
+	transform: scale(0.9);
+}
+
+/* Ajustar taskbar no mockup móvel */
+.mobile-main .task-bar-app-display {
+	font-size: 10px;
+	padding: 3px 6px;
+}
+
+.mobile-main .task-bar-app-title {
+	font-size: 10px;
+}
+
+/* Ajustar clippy no mockup móvel */
+.mobile-main .clippy-container {
+	bottom: 80px !important;
+	right: 10px !important;
+	transform: scale(0.7);
+}
+
+/* Ajustes de responsividade para o mockup móvel */
+@media (max-width: 480px) {
+	.mobile-device-container {
+		max-width: 100%;
+		max-height: 100%;
+		border-radius: 20px;
+		padding: 10px;
+	}
+
+	.mobile-screen-container {
+		border-radius: 20px;
+	}
+
+	.mobile-taskbar-container {
+		bottom: 15px;
+		height: 45px;
+		max-width: 90%;
+	}
+
+	.mobile-button-container {
+		bottom: 5px;
+	}
+
+	.mobile-home-button {
+		width: 50px;
+		height: 50px;
+	}
+}

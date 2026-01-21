@@ -26,3 +26,38 @@
 	bottom: 30px;
 	left: 730px;
 }
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+	.volume-icon-container {
+		width: 95%;
+		max-width: 800px;
+		margin-top: auto;
+		margin-left: auto;
+		bottom: 40px;
+		right: 10px;
+		justify-content: flex-end;
+	}
+
+	.volume-icon-container img {
+		width: 28px;
+		height: 28px;
+	}
+
+	.easter-egg {
+		left: auto;
+		right: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	.volume-icon-container {
+		bottom: 35px;
+		right: 5px;
+	}
+
+	.volume-icon-container img {
+		width: 24px;
+		height: 24px;
+	}
+}

@@ -17,12 +17,14 @@ import Paint from "./apps/Paint/Paint";
 import { useAppsManager } from "./context/AppsManagerContext";
 import { usePopUpsManager } from "./context/PopUpsManagerContext";
 import Browser from "./apps/Browser/Browser";
+import useIsMobile from "./hooks/useIsMobile";
 
 const DESKTOP_WIDTH = 800;
 const DESKTOP_HEIGHT = 600;
 const TASKBAR_HEIGHT = 38;
 
 function App() {
+	const isMobile = useIsMobile();
 	const { openedApps } = useAppsManager();
 	const { openedPopUps } = usePopUpsManager();
 
@@ -104,6 +106,138 @@ function App() {
 		});
 	};
 
+	// Renderizar mockup de dispositivo móvel se for mobile
+	if (isMobile) {
+		return (
+			<div className="main mobile-main" id="mobile-main">
+				{!isScreenTurnedOn && (
+					<div className="mobile-device-container">
+						<div className="mobile-screen-container">
+							<div className="mobile-screen" ref={computerScreenRef}>
+								<div className="pop-ups-container">
+									{Object.values(openedPopUps).map((popUp) => {
+										return popUp[1];
+									})}
+								</div>
+
+								<img className="mobile-screen-background" src="icons/bg1.gif" style={{ width: "100%", height: "100%", overflow: "hidden" }} />
+
+								<div className="mobile-screen-icons-container" ref={appsDisplayParentRef} style={{ position: "absolute", width: "100%", height: "100%" }}>
+									<Browser
+										iconX={0}
+										iconY={0}
+										ref={browserRef}
+										parentRef={appsDisplayParentRef}
+										desktopWidth={DESKTOP_WIDTH}
+										desktopHeight={DESKTOP_HEIGHT}
+										taskbarHeight={TASKBAR_HEIGHT}
+									/>
+									<IconDisplay icon="icons/bin.png" title="bin" x={14.5} y={6.5} />
+									<IconDisplay icon="icons/windows-folder.png" title="folder" x={14.5} y={2} />
+									<IconDisplay icon="icons/mp4.png" title="0x.mp4" x={14.5} y={3} />
+									<IconDisplay
+										icon="icons/spotify.png"
+										title="spotify"
+										x={0}
+										y={3}
+										href="https://open.spotify.com/user/22mrt5ov3taytdsgwmnfkmory?si=32b3f2cea68c4958"
+									/>
+									<IconDisplay
+										icon="icons/instagram.png"
+										title="instagram"
+										x={0}
+										y={1}
+										href="https://www.instagram.com/ste16bit?igsh=a21uamRwcWF2cDIw&utm_source=qr"
+									/>
+									<IconDisplay icon="icons/x.png" title="twitter" x={0} y={2} href="https://twitter.com/ste_16bit" />
+									<IconDisplay icon="icons/github.png" title="github" x={0} y={5} href="https://github.com/stefani16bit" />
+									<IconDisplay icon="icons/steam.png" title="steam" x={0} y={4} href="https://steamcommunity.com/profiles/76561198316392663" />
+
+									<Terminal
+										iconX={14.5}
+										iconY={0}
+										ref={terminalRef}
+										parentRef={appsDisplayParentRef}
+										desktopWidth={DESKTOP_WIDTH}
+										desktopHeight={DESKTOP_HEIGHT}
+										taskbarHeight={TASKBAR_HEIGHT}
+									/>
+									<Txt
+										iconX={3}
+										iconY={3}
+										ref={txtRef}
+										parentRef={appsDisplayParentRef}
+										desktopWidth={DESKTOP_WIDTH}
+										desktopHeight={DESKTOP_HEIGHT}
+										taskbarHeight={TASKBAR_HEIGHT}
+									/>
+									<MyPc
+										iconX={14.5}
+										iconY={1}
+										ref={myPcRef}
+										parentRef={appsDisplayParentRef}
+										desktopWidth={DESKTOP_WIDTH}
+										desktopHeight={DESKTOP_HEIGHT}
+										taskbarHeight={TASKBAR_HEIGHT}
+									/>
+									<Doom
+										iconX={13}
+										iconY={1}
+										ref={doomRef}
+										parentRef={appsDisplayParentRef}
+										desktopWidth={DESKTOP_WIDTH}
+										desktopHeight={DESKTOP_HEIGHT}
+										taskbarHeight={TASKBAR_HEIGHT}
+									/>
+									<Paint
+										iconX={13}
+										iconY={2}
+										ref={paintRef}
+										parentRef={appsDisplayParentRef}
+										desktopWidth={DESKTOP_WIDTH}
+										desktopHeight={DESKTOP_HEIGHT}
+										taskbarHeight={TASKBAR_HEIGHT}
+									/>
+									{isTerminalOpened ? terminalRef?.current?.render() : null}
+									{isTxtOpened ? txtRef?.current?.render() : null}
+									{isMyPcOpened ? myPcRef?.current?.render() : null}
+									{isDoomOpened ? doomRef?.current?.render() : null}
+									{isBrowserOpened ? browserRef?.current?.render() : null}
+									{isPaintOpened ? paintRef?.current?.render() : null}
+								</div>
+								<Clock />
+								<Volume />
+								<Clippy />
+								<div
+									style={{
+										display: "flex",
+										position: "absolute",
+										bottom: "10px",
+										left: "10px",
+										fontSize: "12px",
+										fontWeight: "bold",
+										color: "white",
+									}}
+								>
+									stefani16bit ©
+								</div>
+							</div>
+						</div>
+						<div className="mobile-taskbar-container" ref={appsTaskBarParentRef}>
+							{openedApps.map((appRef) => {
+								return <TaskBarAppDisplay appRef={appRef} />;
+							})}
+						</div>
+						<div className="mobile-button-container">
+							<button className="mobile-home-button" onClick={handleToggleScreen}></button>
+						</div>
+					</div>
+				)}
+			</div>
+		);
+	}
+
+	// Renderizar mockup de PC se não for mobile
 	return (
 		<div className="main" id="computer-main">
 			{!isScreenTurnedOn && (

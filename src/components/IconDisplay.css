@@ -5,3 +5,41 @@
     box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.8);
     cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
 }
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+	.icon-display-container {
+		min-width: 60px !important;
+		min-height: 60px !important;
+	}
+
+	.icon-display-container:hover {
+		width: 60px;
+		height: 50px;
+	}
+
+	.icon-display-container img {
+		width: 48px !important;
+		height: 48px !important;
+	}
+
+	.icon-display-container a {
+		font-size: 9px !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.icon-display-container {
+		min-width: 50px !important;
+		min-height: 50px !important;
+	}
+
+	.icon-display-container img {
+		width: 40px !important;
+		height: 40px !important;
+	}
+
+	.icon-display-container a {
+		font-size: 8px !important;
+	}
+}

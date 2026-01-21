@@ -47,3 +47,45 @@
 	width: 20px;
 	height: 20px;
 }
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+	.app-interface-container {
+		max-width: 95vw;
+		min-width: 280px;
+	}
+
+	.app-interface-top-bar-container {
+		height: 36px !important;
+	}
+
+	.app-interface-top-bar-title {
+		font-size: 13px;
+	}
+
+	.app-interface-top-bar-min-icon,
+	.app-interface-top-bar-close-icon,
+	.app-interface-top-bar-icon {
+		width: 24px;
+		height: 24px;
+	}
+
+	.app-interface-top-bar-container {
+		cursor: default;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.app-interface-top-bar-title {
+		font-size: 11px;
+	}
+
+	.app-interface-top-bar-min-icon,
+	.app-interface-top-bar-close-icon,
+	.app-interface-top-bar-icon {
+		width: 20px;
+		height: 20px;
+	}
+}

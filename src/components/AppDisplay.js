@@ -36,11 +36,70 @@ const AppDisplay = React.forwardRef(
 	) => {
 		const { focusedApp } = useAppsManager();
 
-		const appDisplayRef = useRef(null);
+	const appDisplayRef = useRef(null);
+	const touchStartPos = useRef({ x: 0, y: 0 });
+	const isDragging = useRef(false);
 
-		useEffect(() => {
-			setDisplayRef(appDisplayRef);
-		}, [appDisplayRef]);
+	useEffect(() => {
+		setDisplayRef(appDisplayRef);
+	}, [appDisplayRef]);
+
+	// Suporte a eventos de toque para dispositivos móveis
+	const handleTouchStart = (e) => {
+		if (!onTopBarDragStart) return;
+		
+		const touch = e.touches[0];
+		touchStartPos.current = {
+			x: touch.clientX,
+			y: touch.clientY,
+		};
+		isDragging.current = false;
+		
+		// Simular dragStart
+		const fakeEvent = {
+			pageX: touch.clientX,
+			pageY: touch.clientY,
+			dataTransfer: { setDragImage: () => {} },
+		};
+		onTopBarDragStart(fakeEvent);
+	};
+
+	const handleTouchMove = (e) => {
+		if (!onTopBarDrag) return;
+		
+		const touch = e.touches[0];
+		const deltaX = Math.abs(touch.clientX - touchStartPos.current.x);
+		const deltaY = Math.abs(touch.clientY - touchStartPos.current.y);
+		
+		// Considerar como drag se o movimento for maior que 5px
+		if (deltaX > 5 || deltaY > 5) {
+			isDragging.current = true;
+			e.preventDefault(); // Prevenir scroll durante o drag
+		}
+		
+		if (isDragging.current) {
+			const fakeEvent = {
+				pageX: touch.clientX,
+				pageY: touch.clientY,
+				clientX: touch.clientX,
+				clientY: touch.clientY,
+			};
+			onTopBarDrag(fakeEvent);
+		}
+	};
+
+	const handleTouchEnd = (e) => {
+		if (!onTopBarDragEnd) return;
+		
+		if (isDragging.current) {
+			const fakeEvent = {
+				preventDefault: () => {},
+			};
+			onTopBarDragEnd(fakeEvent);
+		}
+		
+		isDragging.current = false;
+	};
 
 		return (
 			<div
@@ -64,6 +123,9 @@ const AppDisplay = React.forwardRef(
 					onDragStart={onTopBarDragStart}
 					onDragEnd={onTopBarDragEnd}
 					onDrag={onTopBarDrag}
+					onTouchStart={handleTouchStart}
+					onTouchMove={handleTouchMove}
+					onTouchEnd={handleTouchEnd}
 				>
 					<div className="app-interface-top-bar-left-icons-container">
 						<img src={icon} className="app-interface-top-bar-icon" />
