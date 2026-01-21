@@ -39,6 +39,7 @@ function App() {
 	const browserRef = useRef(null);
 	const paintRef = useRef(null);
 
+	// Estados dos apps
 	const [isTerminalOpened, setIsTerminalOpened] = useState(false);
 	const [isTxtOpened, setIsTxtOpened] = useState(false);
 	const [isMyPcOpened, setIsMyPcOpened] = useState(false);
@@ -46,6 +47,52 @@ function App() {
 	const [isDoomOpened, setIsDoomOpened] = useState(false);
 	const [isBrowserOpened, setIsBrowserOpened] = useState(false);
 	const [isPaintOpened, setIsPaintOpened] = useState(false);
+
+	// Calcular dimensões dinâmicas para mobile
+	const [mobileDimensions, setMobileDimensions] = useState({ width: DESKTOP_WIDTH, height: DESKTOP_HEIGHT });
+
+	useEffect(() => {
+		if (!isMobile || isScreenTurnedOn) {
+			setMobileDimensions({ width: DESKTOP_WIDTH, height: DESKTOP_HEIGHT });
+			return;
+		}
+
+		const updateDimensions = () => {
+			if (computerScreenRef.current) {
+				const rect = computerScreenRef.current.getBoundingClientRect();
+				if (rect.width > 0 && rect.height > 0) {
+					setMobileDimensions({
+						width: rect.width,
+						height: rect.height - TASKBAR_HEIGHT, // Subtrair altura da taskbar
+					});
+				}
+			}
+		};
+
+		// Aguardar múltiplos frames para garantir que o layout foi renderizado
+		const timeout1 = setTimeout(updateDimensions, 0);
+		const timeout2 = setTimeout(updateDimensions, 100);
+		const raf1 = requestAnimationFrame(updateDimensions);
+		const raf2 = requestAnimationFrame(() => {
+			requestAnimationFrame(updateDimensions);
+		});
+
+		window.addEventListener("resize", updateDimensions);
+		window.addEventListener("orientationchange", updateDimensions);
+
+		return () => {
+			clearTimeout(timeout1);
+			clearTimeout(timeout2);
+			cancelAnimationFrame(raf1);
+			cancelAnimationFrame(raf2);
+			window.removeEventListener("resize", updateDimensions);
+			window.removeEventListener("orientationchange", updateDimensions);
+		};
+	}, [isMobile, isScreenTurnedOn]);
+
+	// Usar dimensões dinâmicas no mobile, fixas no desktop
+	const currentWidth = isMobile ? mobileDimensions.width : DESKTOP_WIDTH;
+	const currentHeight = isMobile ? mobileDimensions.height : DESKTOP_HEIGHT;
 
 	const appsStateMap = {
 		terminal: { ref: terminalRef, isOpened: isTerminalOpened, setIsOpened: setIsTerminalOpened },
@@ -128,8 +175,8 @@ function App() {
 										iconY={0}
 										ref={browserRef}
 										parentRef={appsDisplayParentRef}
-										desktopWidth={DESKTOP_WIDTH}
-										desktopHeight={DESKTOP_HEIGHT}
+										desktopWidth={currentWidth}
+										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
 									/>
 									<IconDisplay icon="icons/bin.png" title="bin" x={14.5} y={6.5} />
@@ -158,8 +205,8 @@ function App() {
 										iconY={0}
 										ref={terminalRef}
 										parentRef={appsDisplayParentRef}
-										desktopWidth={DESKTOP_WIDTH}
-										desktopHeight={DESKTOP_HEIGHT}
+										desktopWidth={currentWidth}
+										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
 									/>
 									<Txt
@@ -167,8 +214,8 @@ function App() {
 										iconY={3}
 										ref={txtRef}
 										parentRef={appsDisplayParentRef}
-										desktopWidth={DESKTOP_WIDTH}
-										desktopHeight={DESKTOP_HEIGHT}
+										desktopWidth={currentWidth}
+										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
 									/>
 									<MyPc
@@ -176,8 +223,8 @@ function App() {
 										iconY={1}
 										ref={myPcRef}
 										parentRef={appsDisplayParentRef}
-										desktopWidth={DESKTOP_WIDTH}
-										desktopHeight={DESKTOP_HEIGHT}
+										desktopWidth={currentWidth}
+										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
 									/>
 									<Doom
@@ -185,8 +232,8 @@ function App() {
 										iconY={1}
 										ref={doomRef}
 										parentRef={appsDisplayParentRef}
-										desktopWidth={DESKTOP_WIDTH}
-										desktopHeight={DESKTOP_HEIGHT}
+										desktopWidth={currentWidth}
+										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
 									/>
 									<Paint
@@ -194,8 +241,8 @@ function App() {
 										iconY={2}
 										ref={paintRef}
 										parentRef={appsDisplayParentRef}
-										desktopWidth={DESKTOP_WIDTH}
-										desktopHeight={DESKTOP_HEIGHT}
+										desktopWidth={currentWidth}
+										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
 									/>
 									{isTerminalOpened ? terminalRef?.current?.render() : null}
