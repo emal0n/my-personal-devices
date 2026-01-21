@@ -28,6 +28,24 @@
 	}
 }
 
+/* Estilos específicos para ícones no mobile */
+.icon-mobile {
+	min-width: 60px !important;
+	min-height: 70px !important;
+}
+
+.icon-mobile img {
+	width: 48px !important;
+	height: 48px !important;
+}
+
+.icon-mobile span {
+	font-size: 9px !important;
+	word-break: break-word;
+	text-align: center;
+	max-width: 60px;
+}
+
 @media (max-width: 480px) {
 	.icon-display-container {
 		min-width: 50px !important;

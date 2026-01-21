@@ -783,8 +783,39 @@
 	top: 0;
 	left: 0;
 	pointer-events: none;
+	z-index: 5000;
+	overflow: visible;
 }
 
 .mobile-main .pop-ups-container > * {
 	pointer-events: auto;
+}
+
+/* Ajustar apps abertos no mobile */
+.mobile-main .app-interface-container {
+	max-width: 95% !important;
+	max-height: 85% !important;
+	min-width: 280px;
+	width: auto !important;
+	position: absolute !important;
+	z-index: 10000 !important;
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Garantir que os apps sejam redimensionados corretamente no mobile */
+.mobile-main .app-interface-content-container {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	max-height: calc(85vh - 40px);
+}
+
+/* Ajustar botões de controle no mobile */
+.mobile-main .app-interface-top-bar-min-icon,
+.mobile-main .app-interface-top-bar-close-icon {
+	min-width: 32px !important;
+	min-height: 32px !important;
+	padding: 4px;
+	touch-action: manipulation;
 }

@@ -30,6 +30,7 @@ function App() {
 
 	const appsDisplayParentRef = useRef(null);
 	const appsTaskBarParentRef = useRef(null);
+	const mobilePopUpsContainerRef = useRef(null);
 
 	const terminalRef = useRef(null);
 	const txtRef = useRef(null);
@@ -106,20 +107,24 @@ function App() {
 	useEffect(() => {
 		const registeredStateListeners = [];
 
-		for (const [key, { ref, setIsOpened }] of Object.entries(appsStateMap)) {
-			if (ref?.current) {
-				registeredStateListeners.push(
-					ref.current.onAppCoreOpenStateChanged((isOpened) => {
-						setIsOpened(isOpened);
-					})
-				);
+		// Aguardar um frame para garantir que os refs estejam prontos
+		const timeout = setTimeout(() => {
+			for (const [key, { ref, setIsOpened }] of Object.entries(appsStateMap)) {
+				if (ref?.current) {
+					registeredStateListeners.push(
+						ref.current.onAppCoreOpenStateChanged((isOpened) => {
+							setIsOpened(isOpened);
+						})
+					);
+				}
 			}
-		}
+		}, 0);
 
 		return () => {
+			clearTimeout(timeout);
 			registeredStateListeners.forEach((removeListener) => removeListener());
 		};
-	}, [terminalRef, txtRef, myPcRef, doomRef, isScreenTurnedOn, browserRef, paintRef]);
+	}, [terminalRef, txtRef, myPcRef, doomRef, isScreenTurnedOn, browserRef, paintRef, isMobile]);
 
 	useEffect(() => {
 		function onClick({ x, y }) {
@@ -161,10 +166,17 @@ function App() {
 					<div className="mobile-device-container">
 						<div className="mobile-screen-container">
 							<div className="mobile-screen" ref={computerScreenRef}>
-								<div className="pop-ups-container">
+								<div className="pop-ups-container" ref={mobilePopUpsContainerRef}>
 									{Object.values(openedPopUps).map((popUp) => {
 										return popUp[1];
 									})}
+									{/* Renderizar apps abertos no mobile */}
+									{isTerminalOpened ? terminalRef?.current?.render() : null}
+									{isTxtOpened ? txtRef?.current?.render() : null}
+									{isMyPcOpened ? myPcRef?.current?.render() : null}
+									{isDoomOpened ? doomRef?.current?.render() : null}
+									{isBrowserOpened ? browserRef?.current?.render() : null}
+									{isPaintOpened ? paintRef?.current?.render() : null}
 								</div>
 
 								<img className="mobile-screen-background" src="icons/bg1.gif" style={{ width: "100%", height: "100%", overflow: "hidden" }} />
@@ -174,20 +186,55 @@ function App() {
 										iconX={0}
 										iconY={0}
 										ref={browserRef}
-										parentRef={appsDisplayParentRef}
+										parentRef={isMobile ? mobilePopUpsContainerRef : appsDisplayParentRef}
 										desktopWidth={currentWidth}
 										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={8}
 									/>
-									<IconDisplay icon="icons/bin.png" title="bin" x={14.5} y={6.5} />
-									<IconDisplay icon="icons/windows-folder.png" title="folder" x={14.5} y={2} />
-									<IconDisplay icon="icons/mp4.png" title="0x.mp4" x={14.5} y={3} />
+									<IconDisplay 
+										icon="icons/bin.png" 
+										title="bin" 
+										x={14.5} 
+										y={6.5}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={0}
+									/>
+									<IconDisplay 
+										icon="icons/windows-folder.png" 
+										title="folder" 
+										x={14.5} 
+										y={2}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={1}
+									/>
+									<IconDisplay 
+										icon="icons/mp4.png" 
+										title="0x.mp4" 
+										x={14.5} 
+										y={3}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={2}
+									/>
 									<IconDisplay
 										icon="icons/spotify.png"
 										title="spotify"
 										x={0}
 										y={3}
 										href="https://open.spotify.com/user/22mrt5ov3taytdsgwmnfkmory?si=32b3f2cea68c4958"
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={3}
 									/>
 									<IconDisplay
 										icon="icons/instagram.png"
@@ -195,62 +242,110 @@ function App() {
 										x={0}
 										y={1}
 										href="https://www.instagram.com/ste16bit?igsh=a21uamRwcWF2cDIw&utm_source=qr"
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={4}
 									/>
-									<IconDisplay icon="icons/x.png" title="twitter" x={0} y={2} href="https://twitter.com/ste_16bit" />
-									<IconDisplay icon="icons/github.png" title="github" x={0} y={5} href="https://github.com/stefani16bit" />
-									<IconDisplay icon="icons/steam.png" title="steam" x={0} y={4} href="https://steamcommunity.com/profiles/76561198316392663" />
+									<IconDisplay 
+										icon="icons/x.png" 
+										title="twitter" 
+										x={0} 
+										y={2} 
+										href="https://twitter.com/ste_16bit"
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={5}
+									/>
+									<IconDisplay 
+										icon="icons/github.png" 
+										title="github" 
+										x={0} 
+										y={5} 
+										href="https://github.com/stefani16bit"
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={6}
+									/>
+									<IconDisplay 
+										icon="icons/steam.png" 
+										title="steam" 
+										x={0} 
+										y={4} 
+										href="https://steamcommunity.com/profiles/76561198316392663"
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={7}
+									/>
 
 									<Terminal
 										iconX={14.5}
 										iconY={0}
 										ref={terminalRef}
-										parentRef={appsDisplayParentRef}
+										parentRef={isMobile ? mobilePopUpsContainerRef : appsDisplayParentRef}
 										desktopWidth={currentWidth}
 										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={9}
 									/>
 									<Txt
 										iconX={3}
 										iconY={3}
 										ref={txtRef}
-										parentRef={appsDisplayParentRef}
+										parentRef={isMobile ? mobilePopUpsContainerRef : appsDisplayParentRef}
 										desktopWidth={currentWidth}
 										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={10}
 									/>
 									<MyPc
 										iconX={14.5}
 										iconY={1}
 										ref={myPcRef}
-										parentRef={appsDisplayParentRef}
+										parentRef={isMobile ? mobilePopUpsContainerRef : appsDisplayParentRef}
 										desktopWidth={currentWidth}
 										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={11}
 									/>
 									<Doom
 										iconX={13}
 										iconY={1}
 										ref={doomRef}
-										parentRef={appsDisplayParentRef}
+										parentRef={isMobile ? mobilePopUpsContainerRef : appsDisplayParentRef}
 										desktopWidth={currentWidth}
 										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={12}
 									/>
 									<Paint
 										iconX={13}
 										iconY={2}
 										ref={paintRef}
-										parentRef={appsDisplayParentRef}
+										parentRef={isMobile ? mobilePopUpsContainerRef : appsDisplayParentRef}
 										desktopWidth={currentWidth}
 										desktopHeight={currentHeight}
 										taskbarHeight={TASKBAR_HEIGHT}
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={13}
 									/>
-									{isTerminalOpened ? terminalRef?.current?.render() : null}
-									{isTxtOpened ? txtRef?.current?.render() : null}
-									{isMyPcOpened ? myPcRef?.current?.render() : null}
-									{isDoomOpened ? doomRef?.current?.render() : null}
-									{isBrowserOpened ? browserRef?.current?.render() : null}
-									{isPaintOpened ? paintRef?.current?.render() : null}
 								</div>
 								<Clock />
 								<Volume />

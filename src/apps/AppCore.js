@@ -33,6 +33,10 @@ const AppCore = React.forwardRef(
 			desktopHeight,
 			desktopWidth,
 			taskbarHeight,
+			isMobile,
+			containerWidth,
+			containerHeight,
+			mobileIndex,
 		},
 		ref
 	) => {
@@ -99,8 +103,12 @@ const AppCore = React.forwardRef(
 			let { x: appX, y: appY, left: appLeft, top: appTop } = appDisplayRef.current.getBoundingClientRect();
 			let { left: parentLeft, right: parentRight, top: parentTop, bottom: parentBottom } = parentRef.current.getBoundingClientRect();
 
-			const targetX = p(a(screenX, parentLeft, parentRight), parentLeft, parentLeft + desktopWidth) - parentLeft;
-			const targetY = p(a(screenY, parentTop, parentBottom), parentTop, parentTop + (desktopHeight - taskbarHeight)) - parentTop;
+			// Usar dimensões corretas baseadas no dispositivo
+			const renderWidth = isMobile && containerWidth ? containerWidth : desktopWidth;
+			const renderHeight = isMobile && containerHeight ? containerHeight : desktopHeight;
+
+			const targetX = p(a(screenX, parentLeft, parentRight), parentLeft, parentLeft + renderWidth) - parentLeft;
+			const targetY = p(a(screenY, parentTop, parentBottom), parentTop, parentTop + (renderHeight - taskbarHeight)) - parentTop;
 
 			return {
 				targetX,
@@ -151,7 +159,11 @@ const AppCore = React.forwardRef(
 			targetX -= pinXOffset;
 			targetY -= pinYOffset;
 
-			if (targetX < 0 || targetY < 0 || targetX > desktopWidth - 10 || targetY > desktopHeight - taskbarHeight - 10) {
+			// Usar dimensões corretas baseadas no dispositivo
+			const renderWidth = isMobile && containerWidth ? containerWidth : desktopWidth;
+			const renderHeight = isMobile && containerHeight ? containerHeight : desktopHeight;
+
+			if (targetX < 0 || targetY < 0 || targetX > renderWidth - 10 || targetY > renderHeight - taskbarHeight - 10) {
 				return;
 			}
 
@@ -192,9 +204,12 @@ const AppCore = React.forwardRef(
 					callOnAppCoreFocusStateChangedListeners(true);
 					setIsOpened(true);
 
-					requestAnimationFrame(() => {
-						ref.current.minimize(true);
-					});
+					// Não minimizar automaticamente no mobile
+					if (!isMobile) {
+						requestAnimationFrame(() => {
+							ref.current.minimize(true);
+						});
+					}
 				},
 
 				close() {
@@ -251,9 +266,25 @@ const AppCore = React.forwardRef(
 				appDisplayRef: appDisplayRef,
 
 				render() {
+					// Usar dimensões corretas baseadas no dispositivo
+					const renderWidth = isMobile && containerWidth ? containerWidth : desktopWidth;
+					const renderHeight = isMobile && containerHeight ? containerHeight : desktopHeight;
+					
+					// Ajustar tamanho do app no mobile se necessário
+					let appWidth = width;
+					let appHeight = height;
+					
+					if (isMobile && containerWidth && containerHeight) {
+						// Limitar tamanho do app para caber na tela mobile
+						const maxWidth = Math.min(width, containerWidth * 0.95);
+						const maxHeight = Math.min(height, containerHeight * 0.85);
+						appWidth = maxWidth;
+						appHeight = maxHeight;
+					}
+					
 					{
-						currentX.current = (desktopWidth - width) / 2;
-						currentY.current = (desktopHeight - height) / 2;
+						currentX.current = (renderWidth - appWidth) / 2;
+						currentY.current = (renderHeight - appHeight) / 2;
 					}
 
 					return (
@@ -262,8 +293,8 @@ const AppCore = React.forwardRef(
 							AppRenderer={AppRenderer}
 							title={title}
 							icon={icon}
-							width={width}
-							height={height}
+							width={appWidth}
+							height={appHeight}
 							x={currentX?.current || 0}
 							y={currentY?.current || 0}
 							titleColor={titleColor}
@@ -301,6 +332,10 @@ const AppCore = React.forwardRef(
 				onIconClicked={() => {
 					ref?.current?.open();
 				}}
+				isMobile={isMobile}
+				containerWidth={containerWidth}
+				containerHeight={containerHeight}
+				mobileIndex={mobileIndex}
 			/>
 		);
 	}
