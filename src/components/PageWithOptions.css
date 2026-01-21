@@ -1,0 +1,31 @@
+.app-options-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	position: sticky;
+	width: 100%;
+	height: 25px;
+	margin-top: 5px;
+	background-color: #cbcbcb;
+	font-size: 15px;
+}
+
+.app-options-button {
+	display: flex;
+	align-items: center;
+	height: 25px;
+	background-color: #cbcbcb;
+	border: 1px outset #cbcbcb;
+
+	box-shadow: inset 2px 2px 1px 0px rgba(228, 228, 228, 1), 0px 2px 1px 0px rgba(203, 203, 203, 1), 0px 0px 0px 0px rgba(177, 177, 177, 1),
+		-2px 0px 2px 0px rgba(228, 228, 228, 1);
+	font-weight: bold;
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
+}
+
+.app-options-button:active {
+	background-color: #cbcbcb;
+	border: 1px inset #696969;
+	font-weight: bold;
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
+}

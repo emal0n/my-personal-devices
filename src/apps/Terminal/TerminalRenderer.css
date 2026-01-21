@@ -1,0 +1,64 @@
+.terminal-renderer-container {
+	color: #07fc0d;
+	font-family: monospace;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.terminal-renderer-container {
+	color: white;
+	background-color: black;
+	padding-left: 10px;
+	font-family: monospace;
+	overflow-y: auto;
+	height: 100%;
+}
+
+.terminal-input {
+	color: white;
+	background-color: transparent;
+	font-size: 16px;
+	border: none;
+	outline: none;
+	width: 100%;
+	caret-color: white;
+	animation: blink-caret 1s step-end infinite;
+	margin: 0;
+	padding: 0;
+}
+
+.input-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	font-family: monospace;
+	font-size: 16px;
+}
+
+.fixed-text {
+	color: white;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-right-color: transparent;
+	}
+	50% {
+		border-right-color: white;
+	}
+}

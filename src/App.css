@@ -1,0 +1,368 @@
+:root {
+	--initial-scale: 0.3;
+	--scale-multiplier: 0.08;
+	--scale-offset-index: 1;
+}
+
+.main {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	scale: calc(var(--initial-scale) + var(--scale-multiplier) * var(--scale-offset-index));
+}
+
+.lock-computer-screen-container {
+	width: 800px;
+	height: 562px;
+	top: 52px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	overflow: hidden;
+}
+
+.computer-taskbar-container {
+	width: 800px;
+	height: 38px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 614px;
+}
+
+.lock-computer-crt-container {
+	width: 1000px;
+	height: 1010px;
+	min-height: 770px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+}
+
+.computer-crt-container {
+	width: 1000px;
+	height: 770px;
+	min-height: 770px;
+	background-color: rgb(205, 198, 179);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 5px;
+	box-shadow: inset 0px 2px 0px 8px rgb(182, 175, 158);
+}
+.computer-screen {
+	width: 800px;
+	height: 600px;
+	display: flex;
+	border-radius: 2px;
+	border: 25px solid rgb(145, 137, 115);
+}
+
+.computer-button-container {
+	display: flex;
+	justify-content: right;
+	position: relative;
+	height: 50px;
+	width: 100%;
+	right: 75px;
+	top: 35px;
+	gap: 10px;
+}
+
+.computer-button-light {
+	width: 15px;
+	height: 15px;
+	background-color: #00ff37;
+	border: none;
+	border-radius: 20px;
+	box-shadow: 0px 0px 25px 3px #05d432;
+}
+
+.computer-button {
+	width: 80px;
+	background-color: rgb(205, 198, 179);
+	border-radius: 3px;
+	border-color: rgb(128, 123, 112);
+	box-shadow: inset 0px 0px 0px 8px rgb(172, 166, 150);
+}
+
+.computer-button:hover {
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
+}
+
+.shadow {
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	top: 52px;
+	z-index: 20000;
+	box-shadow: inset 0px 0px 50px 0 #1a3565;
+	pointer-events: none;
+}
+
+.out-light {
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	top: 52px;
+	z-index: 10000;
+	box-shadow: 0px 0px 600px 0 #7caaff;
+	pointer-events: none;
+}
+
+.computer-stand {
+	display: flex;
+	height: 50px;
+	min-height: 50px;
+	width: 500px;
+	border-radius: 150px 150px 0 0;
+	background-color: rgb(205, 198, 179);
+	box-shadow: inset 0px 10px 1px 6px rgb(145, 137, 115);
+}
+
+.computer-case {
+	display: flex;
+	height: 200px;
+	min-height: 200px;
+	width: 1000px;
+	background-color: rgb(205, 198, 179);
+	margin-top: 5px;
+	border-radius: 5px;
+	box-shadow: inset 0px 12px 0px 8px rgb(172, 166, 150);
+}
+
+.computer-diskhat {
+	display: flex;
+	height: 100px;
+	width: 300px;
+	background-color: rgb(182, 175, 158);
+	border-radius: 5px;
+	margin: 40px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.computer-diskhat-input-container {
+	height: 100px;
+	width: 300px;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	border: 2px solid rgb(145, 137, 115);
+	box-shadow: inset 0px 8px 0px 0px rgb(128, 123, 112);
+}
+
+.computer-diskhat-input {
+	display: flex;
+	height: 20px;
+	width: 250px;
+	background-color: rgb(128, 123, 112);
+	border-radius: 5px;
+	justify-content: center;
+	align-items: center;
+	box-shadow: inset 0px 8px 0px 0px rgb(101, 97, 88);
+}
+
+.computer-diskhat-input-2 {
+	display: flex;
+	height: 40px;
+	width: 80px;
+	background-color: rgb(128, 123, 112);
+	border-radius: 5px;
+	box-shadow: inset 0px 8px 0px 0px rgb(101, 97, 88);
+}
+
+.computer-diskhat-button {
+	display: flex;
+	height: 10px;
+	width: 40px;
+	background-color: rgb(128, 123, 112);
+	border-radius: 2px;
+	position: absolute;
+	left: 250px;
+	top: 80px;
+}
+
+.computer-turn-button-container {
+	display: flex;
+	padding-left: 140px;
+}
+
+.computer-turn-button {
+	width: 50px;
+	height: 50px;
+	background-color: rgb(205, 198, 179);
+	border: 1px solid rgb(119, 115, 104);
+	border-radius: 30px;
+	box-shadow: inset 0px 0px 0px 5px rgb(172, 166, 150);
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151727), auto;
+}
+
+.computer-case-fans-container {
+	display: flex;
+	padding-right: 45px;
+}
+
+.computer-screen-icons-container img:hover {
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
+}
+
+.glitch-screen-effect {
+	width: 800px;
+	height: 600px;
+	top: 52px;
+	position: absolute;
+	overflow: hidden;
+	z-index: 20000;
+	opacity: 5%;
+	pointer-events: none;
+}
+
+.computer-taskbar-container {
+	width: 800px;
+	display: flex;
+	justify-content: start;
+	position: absolute;
+	gap: 5px;
+	right: 2px;
+}
+
+.screen-off-overlay {
+	width: 800px;
+	height: 600px;
+	display: flex;
+}
+
+.pop-ups-container {
+	position: absolute;
+	width: 800px;
+	height: 600px;
+}
+
+@media (max-height: 399px) {
+	.main {
+		--scale-offset-index: 2;
+	}
+}
+
+@media (min-height: 400px) and (max-height: 499px) {
+	.main {
+		--scale-offset-index: 3;
+	}
+}
+
+@media (min-height: 500px) and (max-height: 599px) {
+	.main {
+		--scale-offset-index: 4;
+	}
+}
+
+@media (min-height: 600px) and (max-height: 699px) {
+	.main {
+		--scale-offset-index: 4;
+	}
+}
+
+@media (min-height: 700px) and (max-height: 799px) {
+	.main {
+		--scale-offset-index: 5;
+	}
+}
+
+@media (min-height: 800px) and (max-height: 899px) {
+	.main {
+		--scale-offset-index: 6;
+	}
+}
+
+@media (min-height: 900px) and (max-height: 999px) {
+	.main {
+		--scale-offset-index: 7;
+	}
+}
+
+@media (min-height: 1000px) and (max-height: 1099px) {
+	.main {
+		--scale-offset-index: 8;
+	}
+}
+
+@media (min-height: 1100px) and (max-height: 1199px) {
+	.main {
+		--scale-offset-index: 9;
+	}
+}
+
+@media (min-height: 1200px) and (max-height: 1299px) {
+	.main {
+		--scale-offset-index: 10;
+	}
+}
+
+@media (min-height: 1300px) and (max-height: 1399px) {
+	.main {
+		--scale-offset-index: 11;
+	}
+}
+
+@media (min-height: 1400px) and (max-height: 1499px) {
+	.main {
+		--scale-offset-index: 12;
+	}
+}
+
+@media (min-height: 1500px) and (max-height: 1599px) {
+	.main {
+		--scale-offset-index: 13;
+	}
+}
+
+@media (min-height: 1600px) and (max-height: 1699px) {
+	.main {
+		--scale-offset-index: 14;
+	}
+}
+
+@media (min-height: 1700px) and (max-height: 1799px) {
+	.main {
+		--scale-offset-index: 15;
+	}
+}
+
+@media (min-height: 1800px) and (max-height: 1899px) {
+	.main {
+		--scale-offset-index: 16;
+	}
+}
+
+@media (min-height: 1900px) and (max-height: 1999px) {
+	.main {
+		--scale-offset-index: 17;
+	}
+}
+@media (min-height: 2000px) and (max-height: 2099px) {
+	.main {
+		--scale-offset-index: 18;
+	}
+}
+@media (min-height: 2100px) and (max-height: 2199px) {
+	.main {
+		--scale-offset-index: 19;
+	}
+}
+
+@media (min-height: 2200px) {
+	.main {
+		--scale-offset-index: 20;
+	}
+}

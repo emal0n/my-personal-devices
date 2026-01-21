@@ -1,0 +1,49 @@
+.app-interface-container {
+	z-index: 2000;
+	border: 3px solid #cbcbcb;
+	box-shadow: 0px 0px 15px 0px #474747;
+}
+
+.app-interface-top-bar-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	cursor: move;
+}
+
+.app-interface-top-bar-left-icons-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	margin-left: 5px;
+}
+
+.app-interface-right-icons-container {
+	margin-right: 5px;
+	display: flex;
+}
+
+.app-interface-top-bar-min-icon {
+	width: 20px;
+	height: 20px;
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
+}
+
+.app-interface-top-bar-title {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.app-interface-top-bar-close-icon {
+	width: 20px;
+	height: 20px;
+	cursor: url(http://www.rw-designer.com/cursor-extern.php?id=151740), auto;
+}
+
+.app-interface-top-bar-icon {
+	width: 20px;
+	height: 20px;
+}
