@@ -24,7 +24,7 @@ function IconDisplay({ icon, title, href, x, y, onIconClicked }) {
 				onClick={onIconClicked}
 			>
 				<img src={icon} style={{ width: "40px", height: "45px" }}></img>
-				<a style={{ fontSize: "10px", color: "white", fontFamily: "monospace" }}>{title}</a>
+				<span style={{ fontSize: "10px", color: "white", fontFamily: "monospace" }}>{title}</span>
 			</div>
 		</a>
 	);

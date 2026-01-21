@@ -224,8 +224,8 @@ function App() {
 							</div>
 						</div>
 						<div className="mobile-taskbar-container" ref={appsTaskBarParentRef}>
-							{openedApps.map((appRef) => {
-								return <TaskBarAppDisplay appRef={appRef} />;
+							{openedApps.map((appRef, index) => {
+								return <TaskBarAppDisplay key={appRef?.appearence?.title || index} appRef={appRef} />;
 							})}
 						</div>
 						<div className="mobile-button-container">
@@ -254,8 +254,8 @@ function App() {
 						{isPaintOpened ? paintRef?.current?.render() : null}
 					</div>
 					<div className="computer-taskbar-container" ref={appsTaskBarParentRef}>
-						{openedApps.map((appRef) => {
-							return <TaskBarAppDisplay appRef={appRef} />;
+						{openedApps.map((appRef, index) => {
+							return <TaskBarAppDisplay key={appRef?.appearence?.title || index} appRef={appRef} />;
 						})}
 					</div>
 				</div>

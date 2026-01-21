@@ -63,7 +63,7 @@ function DoomRenderer({ appCoreRef }) {
 					kiosk: true,
 					noNetworking: true,
 					noCloud: true,
-					url: "https://cdn.dos.zone/custom/dos/doom.jsdos",
+					url: "/doom.jsdos",
 				});
 			`;
 
