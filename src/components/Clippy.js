@@ -7,7 +7,7 @@ function Clippy() {
 	const [clippyText, setClippyText] = useState("Hello human!");
 
 	const textSequences = [
-		["This page was made by me (stefani16bit if you guess).", 3],
+		["This page was made by me (emal0n if you guess), based in stefani16bit's project.", 3],
 		["You can check this project on my github page.", 6],
 		["Anyway, don't mind me. I hope you like your visit here.", 12],
 		["Goodbye.", 13],
