@@ -27,7 +27,7 @@ function BrowserRenderer({ appCoreRef }) {
 			</div>
 			<div className="browser-bottom-container">
 				<div className="browser-content">
-				<iframe src="https://cat-bounce.com/" width="100%" height="100%"></iframe>
+				<iframe src="https://retrobeats.com.br/video/1274759/rick-astley-never-gonna-give-you-up-official-music-video" width="100%" height="100%"></iframe>
 				</div>
 			</div>
 		</div>
