@@ -1,7 +1,121 @@
 .my-pc-renderer-container {
 	width: 100%;
 	height: 100%;
-	background-color: #cbcbcb;
-	border: 1px outset #b9b9b9;
-	box-shadow: inset 1px 1px 1px 1px #e7e7e7;
+	background-color: #0a0a0a;
+	border: 2px solid #39ff14;
+	box-shadow: 
+		inset 0 0 20px rgba(57, 255, 20, 0.3),
+		0 0 30px rgba(57, 255, 20, 0.5);
+	position: relative;
+	overflow: hidden;
+}
+
+.my-pc-renderer-container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: 
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(57, 255, 20, 0.03) 2px,
+			rgba(57, 255, 20, 0.03) 4px
+		);
+	pointer-events: none;
+	z-index: 1;
+}
+
+.my-pc-renderer-container::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		rgba(57, 255, 20, 0.4),
+		transparent
+	);
+	pointer-events: none;
+	z-index: 3;
+	animation: scanline 4s linear infinite;
+	box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+@keyframes scanline {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.1;
+	}
+	100% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+}
+
+.my-pc-renderer-container * {
+	position: relative;
+	z-index: 2;
+}
+
+/* Garantir que todos os textos dentro do MyPc sejam verdes */
+.my-pc-renderer-container,
+.my-pc-renderer-container * {
+	color: #39ff14;
+}
+
+.my-pc-renderer-container a,
+.my-pc-renderer-container div,
+.my-pc-renderer-container span,
+.my-pc-renderer-container h1,
+.my-pc-renderer-container h2,
+.my-pc-renderer-container h3,
+.my-pc-renderer-container p {
+	color: #39ff14 !important;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
+}
+
+/* Estilizar abas/opções do MyPc no estilo Pip-Boy */
+.my-pc-renderer-container ~ .app-options-bar,
+.my-pc-renderer-container .app-options-bar {
+	background-color: #0a0a0a !important;
+	border-bottom: 2px solid #39ff14 !important;
+	box-shadow: 0 2px 10px rgba(57, 255, 20, 0.3) !important;
+}
+
+.my-pc-renderer-container ~ .app-options-button,
+.my-pc-renderer-container .app-options-button {
+	background-color: #0a0a0a !important;
+	border: 2px solid #39ff14 !important;
+	border-bottom: none !important;
+	color: #39ff14 !important;
+	font-family: "Courier New", monospace !important;
+	text-shadow: 0 0 5px #39ff14 !important;
+	box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2) !important;
+}
+
+.my-pc-renderer-container ~ .app-options-button:hover,
+.my-pc-renderer-container .app-options-button:hover {
+	background-color: rgba(57, 255, 20, 0.1) !important;
+	box-shadow: 
+		inset 0 0 15px rgba(57, 255, 20, 0.4),
+		0 0 10px rgba(57, 255, 20, 0.5) !important;
+}
+
+.my-pc-renderer-container ~ .app-options-button:active,
+.my-pc-renderer-container .app-options-button:active {
+	background-color: rgba(57, 255, 20, 0.2) !important;
+	box-shadow: 
+		inset 0 0 20px rgba(57, 255, 20, 0.6),
+		0 0 15px rgba(57, 255, 20, 0.7) !important;
 }

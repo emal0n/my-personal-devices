@@ -9,13 +9,49 @@
 	display: flex;
 	flex-direction: column;
 	width: 90%;
-	background-color: #cbcbcb;
-	border: 1px outset #b9b9b9;
-	box-shadow: inset 1px 1px 1px 1px #e7e7e7;
+	background-color: #0a0a0a;
+	border: 2px solid #39ff14;
+	box-shadow: 
+		inset 0 0 15px rgba(57, 255, 20, 0.2),
+		0 0 20px rgba(57, 255, 20, 0.4);
+	position: relative;
+	z-index: 2;
 }
 
 .my-pc-info-father-container {
 	margin: 20px;
+}
+
+.my-pc-info-father-container a {
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
+}
+
+/* Estilizar botões dentro do MyPc */
+.my-pc-config-button-container .windows-button {
+	background-color: #0a0a0a !important;
+	border: 2px solid #39ff14 !important;
+	color: #39ff14 !important;
+	box-shadow: 
+		inset 0 0 10px rgba(57, 255, 20, 0.3),
+		0 0 15px rgba(57, 255, 20, 0.5) !important;
+	font-family: "Courier New", monospace !important;
+	text-shadow: 0 0 10px #39ff14 !important;
+}
+
+.my-pc-config-button-container .windows-button:hover {
+	background-color: rgba(57, 255, 20, 0.1) !important;
+	box-shadow: 
+		inset 0 0 15px rgba(57, 255, 20, 0.5),
+		0 0 20px rgba(57, 255, 20, 0.8) !important;
+}
+
+.my-pc-config-button-container .windows-button:active {
+	background-color: rgba(57, 255, 20, 0.2) !important;
+	box-shadow: 
+		inset 0 0 20px rgba(57, 255, 20, 0.7),
+		0 0 25px rgba(57, 255, 20, 1) !important;
 }
 
 .my-pc-info-container {
@@ -34,19 +70,38 @@
 .my-pc-title {
 	font-size: 20px;
 	font-weight: bold;
-	font-family: "Silkscreen", sans-serif;
+	font-family: "Courier New", monospace;
+	color: #39ff14;
+	text-shadow: 
+		0 0 10px #39ff14,
+		0 0 20px #39ff14,
+		0 0 30px #39ff14;
 }
 
 .my-pc-renderer-title {
 	font-size: 30px;
 	text-align: right;
-	font-family: "Silkscreen", sans-serif;
+	font-family: "Courier New", monospace;
 	font-weight: 400;
+	color: #39ff14;
+	text-shadow: 
+		0 0 10px #39ff14,
+		0 0 20px #39ff14,
+		0 0 30px #39ff14;
 }
 
 .my-pc-renderer-title-container {
 	display: flex;
 	width: 90%;
+}
+
+.my-pc-renderer-title-container a {
+	color: #39ff14;
+	text-shadow: 
+		0 0 10px #39ff14,
+		0 0 20px #39ff14,
+		0 0 30px #39ff14;
+	font-family: "Courier New", monospace;
 }
 
 .my-pc-title2-container {
@@ -56,16 +111,41 @@
 	align-items: right;
 }
 
+.my-pc-title2-container a {
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
+}
+
 .my-pc-title-2 {
 	font-size: 15px;
 	font-weight: bold;
-	font-family: "Silkscreen", sans-serif;
+	font-family: "Courier New", monospace;
+	color: #39ff14;
+	text-shadow: 0 0 10px #39ff14;
+}
+
+.my-pc-title2-container a {
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
 }
 
 .my-pc-config-button-container {
 	display: flex;
 	justify-content: right;
 	width: 90%;
+}
+
+.my-pc-info-container img {
+	filter: 
+		brightness(0.8) 
+		contrast(1.2) 
+		sepia(1) 
+		hue-rotate(60deg) 
+		saturate(2);
+	border: 2px solid #39ff14;
+	box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
 }
 
 /* Responsividade para mobile */

@@ -18,7 +18,7 @@ function MyPcSetupRenderer({ appRef }) {
 							<br/>
                             SSD 256GB M.2 NVMe
 						</div>
-						<div>
+						<div className="my-pc-thinkpad-container">
 							<img src="icons/thinkpad.png" style={{ width: "260px", height: "160px" }}></img>
 						</div>
 					</div>
