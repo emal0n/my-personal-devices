@@ -230,7 +230,7 @@ function App() {
 										title="spotify"
 										x={0}
 										y={3}
-										href="https://open.spotify.com/user/22mrt5ov3taytdsgwmnfkmory?si=32b3f2cea68c4958"
+										href="https://open.spotify.com/user/f5n7qoy9fgpnluutioy0cpc5z?si=CKjtwMPATX6omalb-A3JOg"
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
@@ -241,7 +241,7 @@ function App() {
 										title="instagram"
 										x={0}
 										y={1}
-										href="https://www.instagram.com/ste16bit?igsh=a21uamRwcWF2cDIw&utm_source=qr"
+										href="https://www.instagram.com/enetojesus"
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
@@ -252,7 +252,7 @@ function App() {
 										title="twitter" 
 										x={0} 
 										y={2} 
-										href="https://twitter.com/ste_16bit"
+										href="https://twitter.com/emal0nn"
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
@@ -263,7 +263,7 @@ function App() {
 										title="github" 
 										x={0} 
 										y={5} 
-										href="https://github.com/stefani16bit"
+										href="https://github.com/emal0n"
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
@@ -274,7 +274,7 @@ function App() {
 										title="steam" 
 										x={0} 
 										y={4} 
-										href="https://steamcommunity.com/profiles/76561198316392663"
+										href="https://steamcommunity.com/profiles/76561198761966081"
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
@@ -361,7 +361,7 @@ function App() {
 										color: "white",
 									}}
 								>
-									stefani16bit ©
+									emal0n ©
 								</div>
 							</div>
 						</div>
