@@ -8,30 +8,26 @@ function TxtRenderer({ appCoreRef }) {
 				<br />
 			</div>
 			<a>
-				My name is Stefani, I'm a brazillian girl, currently on my last year of Computer Science. At the moment, I work remotely as a full-stack
-				developer at Thoughtworks.{" "}
+				My journey in technology started with a Lumia 630 stuck on Windows 8.1. After discovering how to manually update it to Windows 10 and making some system modifications, I migrated to Android, where my curiosity truly expanded. That's when I dove into root, custom ROMs, bootloader, and the entire internal universe of devices.
 			</a>
 			<div className="app-txt-renderer-selfie">
 				<a>
-					I have a huge love for retro tech, including old computers, CRTs and videogames, honestly, I think my mind is stuck in the 2000's, I can't
-					let go of the nostalgia, the ascension of the internet, everything that was made at that time, has a special place in my heart. It's strange
-					to see how computers evolved in such a short time, and I'm glad to have grown up with this. Anyway, I even own a sleeper pc. That's why I
-					decided to create this page.
+					Over time, I started working as a tester for various developers, collecting logs and validating features. The desire to understand more led me to seek out how to compile Android, which opened doors to kernel, vendor, Linux, cloud, and other concepts that shaped my path.
 				</a>
 			</div>
 			<div>
 				<br />
 			</div>
 			<div>
-				About my personality I can say I'm a very calm, rational, lonely and simple person, always trying to make the right things. Sometimes I can be
-				tough and skeptical, but this is a trait of my resilience. I have a lot of intrapersonal and interpersonal intelligence, which for some reason
-				made me become a woman with a schizoid personality, despite this, I have good relationships. I like to question everything, teach, observe people and
-				spend time with myself.
+				Today it's already been 11 years of immersion in technology and 3+ years working professionally with software engineering. Documentation, best practices, and solving problems are part of my daily routine. Linux, especially Fedora, has become my main system.
 				<div>
 					<br />
 				</div>
-				On my free time, I really like reading cientific books and playing video games, my favorite games are usually hack n' slash genre, like Devil
-				May Cry 3 and Doom 2016 (btw I have a huge interest in programming games). I also love chess and cats.
+				When I'm not adjusting infrastructure, producing, or following news from the programming and operating systems world, I'm probably exploring something new on Linux or stuck in a game I promised to play "just for 10 minutes".
+				<div>
+					<br />
+				</div>
+				Feel free to reach out to me for any questions, potential opportunities, or ideas you'd like to share!
 			</div>
 		</div>
 	);
