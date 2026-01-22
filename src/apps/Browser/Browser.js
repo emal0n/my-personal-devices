@@ -13,9 +13,9 @@ const Browser = React.forwardRef(({ iconX, iconY, parentRef, ...others }, ref) =
 			icon="icons/explorer.png"
 			width={530}
 			height={350}
-			backgroundColor="white"
-			topBarColor="#01009b"
-			titleColor="white"
+			backgroundColor="#0a0a0a"
+			topBarColor="#39ff14"
+			titleColor="#0a0a0a"
 			ref={ref}
 			parentRef={parentRef}
 			overflowY="hidden"

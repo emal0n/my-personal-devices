@@ -13,9 +13,9 @@ const Paint = React.forwardRef(({ iconX, iconY, parentRef, ...others }, ref) => 
 			icon="icons/paint.png"
 			width={400}
 			height={490}
-			backgroundColor="white"
-			topBarColor="#01009b"
-			titleColor="white"
+			backgroundColor="#0a0a0a"
+			topBarColor="#39ff14"
+			titleColor="#0a0a0a"
 			ref={ref}
 			parentRef={parentRef}
 			overflowY="hidden"

@@ -16,41 +16,71 @@
 }
 
 .terminal-renderer-container {
-	color: white;
-	background-color: black;
+	color: #39ff14;
+	background-color: #0a0a0a;
 	padding-left: 10px;
-	font-family: monospace;
+	font-family: "Courier New", monospace;
 	overflow-y: auto;
 	height: 100%;
+	text-shadow: 0 0 5px #39ff14;
+	position: relative;
+}
+
+.terminal-renderer-container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: 
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(57, 255, 20, 0.03) 2px,
+			rgba(57, 255, 20, 0.03) 4px
+		);
+	pointer-events: none;
+	z-index: 1;
+}
+
+.terminal-renderer-container * {
+	position: relative;
+	z-index: 2;
 }
 
 .terminal-input {
-	color: white;
+	color: #39ff14;
 	background-color: transparent;
 	font-size: 16px;
 	border: none;
 	outline: none;
 	width: 100%;
-	caret-color: white;
+	caret-color: #39ff14;
 	animation: blink-caret 1s step-end infinite;
 	margin: 0;
 	padding: 0;
+	font-family: "Courier New", monospace;
+	text-shadow: 0 0 5px #39ff14;
 }
 
 .input-container {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	font-family: monospace;
+	font-family: "Courier New", monospace;
 	font-size: 16px;
 }
 
 .fixed-text {
-	color: white;
+	color: #39ff14;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
 	line-height: 1.5;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
 }
 
 @keyframes blink-caret {
@@ -59,6 +89,7 @@
 		border-right-color: transparent;
 	}
 	50% {
-		border-right-color: white;
+		border-right-color: #39ff14;
+		box-shadow: 0 0 5px #39ff14;
 	}
 }

@@ -2,74 +2,113 @@
 	display: flex;
 	height: 100%;
 	width: 100%;
-	background-color: brown;
+	background-color: #0a0a0a;
 	flex-direction: column;
+	position: relative;
+}
+
+.browser-container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: 
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(57, 255, 20, 0.03) 2px,
+			rgba(57, 255, 20, 0.03) 4px
+		);
+	pointer-events: none;
+	z-index: 1;
+}
+
+.browser-container * {
+	position: relative;
+	z-index: 2;
 }
 
 .browser-top-container {
 	display: flex;
 	width: 100%;
 	flex-direction: column;
-	background-color: #cbcbcb;
+	background-color: #0a0a0a;
 	height: 60px;
+	border-bottom: 2px solid #39ff14;
+	box-shadow: 0 2px 10px rgba(57, 255, 20, 0.3);
 }
 
 .browser-header-container {
 	display: flex;
 	width: 100%;
 	height: 25px;
-	background-color: #cbcbcb;
+	background-color: #0a0a0a;
 	column-gap: 10px;
 	align-items: center;
-	border: 1px outset #b9b9b9;
-	box-shadow: inset 1px 1px 1px 1px #e7e7e7;
+	border: 2px solid #39ff14;
+	border-bottom: none;
+	box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2);
 }
 
 .bar {
 	display: flex;
 	width: 4px;
 	height: 14px;
-	background-color: #d6d6d6;
-	border: 1px outset #b9b9b9;
-	box-shadow: inset 1px 1px 1px 1px #e7e7e7;
+	background-color: #39ff14;
+	border: 1px solid #39ff14;
+	box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
 	margin-left: 5px;
 }
 
 .browser-header-container > a {
 	font-size: 11px;
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
 }
 
 .browser-address-container {
 	display: flex;
 	width: 100%;
 	height: 25px;
-	background-color: #cbcbcb;
+	background-color: #0a0a0a;
 	font-size: 11px;
 	column-gap: 10px;
 	align-items: center;
-	border: 1px outset #b9b9b9;
-	box-shadow: inset 1px 1px 1px 1px #e7e7e7;
+	border: 2px solid #39ff14;
+	border-top: none;
+	box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2);
 }
 .browser-address-field {
 	display: flex;
 	width: 100%;
 	height: 20px;
-	background-color: white;
-	border: none;
+	background-color: #0a0a0a;
+	border: 1px solid #39ff14;
 	font-size: 11px;
 	align-items: center;
 	justify-content: space-between;
+	color: #39ff14;
+	font-family: "Courier New", monospace;
+	text-shadow: 0 0 5px #39ff14;
+	box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.2);
 }
 
 .browser-address-field > a {
 	padding: 0 5px;
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
 }
 
 .browser-content-container {
 	display: flex;
 	width: 100%;
 	height: 100%;
-	background-color: white;
+	background-color: #0a0a0a;
 }
 
 .browser-content {
@@ -83,18 +122,39 @@
 	display: flex;
 	width: 100%;
 	height: 100%;
-	background-color: white;
+	background-color: #0a0a0a;
 }
 
 .divisor {
 	display: flex;
 	width: 100%;
 	height: 1px;
-	background-color: #ffffff;
+	background-color: #39ff14;
+	box-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
 }
 
 .browser-header-container > a::first-letter {
 	text-decoration: underline;
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+}
+
+.browser-address-field .windows-button {
+	background-color: #0a0a0a !important;
+	border: 2px solid #39ff14 !important;
+	color: #39ff14 !important;
+	box-shadow: 
+		inset 0 0 10px rgba(57, 255, 20, 0.3),
+		0 0 10px rgba(57, 255, 20, 0.5) !important;
+	font-family: "Courier New", monospace !important;
+	text-shadow: 0 0 5px #39ff14 !important;
+}
+
+.browser-address-field .windows-button:hover {
+	background-color: rgba(57, 255, 20, 0.1) !important;
+	box-shadow: 
+		inset 0 0 15px rgba(57, 255, 20, 0.5),
+		0 0 15px rgba(57, 255, 20, 0.8) !important;
 }
 
 .divisor-container {
