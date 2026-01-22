@@ -280,7 +280,6 @@ function App() {
 										containerHeight={currentHeight}
 										mobileIndex={7}
 									/>
-
 									<Terminal
 										iconX={14.5}
 										iconY={0}
@@ -307,6 +306,18 @@ function App() {
 										containerHeight={currentHeight}
 										mobileIndex={10}
 									/>
+									<IconDisplay 
+										icon="icons/txt.png" 
+										title="my resume" 
+										x={4} 
+										y={3} 
+										href="/EdmundoN-Resume.pdf"
+										download="EdmundoN-Resume.pdf"
+										isMobile={isMobile}
+										containerWidth={currentWidth}
+										containerHeight={currentHeight}
+										mobileIndex={11}
+									/>
 									<MyPc
 										iconX={14.5}
 										iconY={1}
@@ -318,7 +329,7 @@ function App() {
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
-										mobileIndex={11}
+										mobileIndex={12}
 									/>
 									<Doom
 										iconX={13}
@@ -331,7 +342,7 @@ function App() {
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
-										mobileIndex={12}
+										mobileIndex={13}
 									/>
 									<Paint
 										iconX={13}
@@ -344,7 +355,7 @@ function App() {
 										isMobile={isMobile}
 										containerWidth={currentWidth}
 										containerHeight={currentHeight}
-										mobileIndex={13}
+										mobileIndex={14}
 									/>
 								</div>
 								<Clock />
@@ -459,6 +470,14 @@ function App() {
 									desktopWidth={DESKTOP_WIDTH}
 									desktopHeight={DESKTOP_HEIGHT}
 									taskbarHeight={TASKBAR_HEIGHT}
+								/>
+								<IconDisplay 
+									icon="icons/txt.png" 
+									title="my resume" 
+									x={4} 
+									y={3} 
+									href="/EdmundoN-Resume.pdf"
+									download="EdmundoN-Resume.pdf"
 								/>
 								<MyPc
 									iconX={14.5}

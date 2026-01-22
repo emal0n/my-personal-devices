@@ -1,7 +1,7 @@
 import "./IconDisplay.css";
 import { useEffect, useState, useRef } from "react";
 
-function IconDisplay({ icon, title, href, x, y, onIconClicked, isMobile, containerWidth, containerHeight, mobileIndex }) {
+function IconDisplay({ icon, title, href, download, x, y, onIconClicked, isMobile, containerWidth, containerHeight, mobileIndex }) {
 	const iconRef = useRef(null);
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -76,7 +76,12 @@ function IconDisplay({ icon, title, href, x, y, onIconClicked, isMobile, contain
 
 	if (href && !onIconClicked) {
 		return (
-			<a href={href} target="_blank" style={{ textDecoration: "none", color: "inherit" }}>
+			<a 
+				href={href} 
+				target={download ? "_self" : "_blank"} 
+				download={download ? download : undefined}
+				style={{ textDecoration: "none", color: "inherit" }}
+			>
 				{content}
 			</a>
 		);
