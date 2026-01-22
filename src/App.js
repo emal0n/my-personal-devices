@@ -179,7 +179,7 @@ function App() {
 									{isPaintOpened ? paintRef?.current?.render() : null}
 								</div>
 
-								<img className="mobile-screen-background" src="icons/bg1.gif" style={{ width: "100%", height: "100%", overflow: "hidden" }} />
+								<img className="mobile-screen-background" src="icons/pipboy.gif" style={{ width: "100%", height: "100%", overflow: "hidden" }} />
 
 								<div className="mobile-screen-icons-container" ref={appsDisplayParentRef} style={{ position: "absolute", width: "100%", height: "100%" }}>
 									<Browser
@@ -405,7 +405,7 @@ function App() {
 								})}
 							</div>
 
-							<img className="computer-screen-background" src="icons/bg1.gif" style={{ width: "100%", height: "100%", overflow: "hidden" }} />
+							<img className="computer-screen-background" src="icons/pipboy.gif" style={{ width: "100%", height: "100%", overflow: "hidden" }} />
 
 							<div
 								className="computer-screen-icons-container"
