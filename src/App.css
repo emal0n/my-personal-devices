@@ -577,7 +577,7 @@
 
 .mobile-taskbar-container {
 	position: absolute;
-	bottom: 20px;
+	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
 	width: calc(100% - 40px);
@@ -597,7 +597,7 @@
 
 .mobile-button-container {
 	position: absolute;
-	bottom: 10px;
+	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 60px;
@@ -687,17 +687,16 @@
 .mobile-main .date-time-container {
 	width: auto;
 	margin-top: auto;
-	bottom: 70px;
-	right: 15px;
-	font-size: 11px;
+	bottom: 10px;
+	left: 10px;
+	font-size: 12px;
 }
 
 .mobile-main .volume-icon-container {
 	width: auto;
 	margin-top: auto;
-	margin-left: auto;
-	bottom: 70px;
-	left: 15px;
+	bottom: 10px;
+	left: 90px;
 	justify-content: flex-start;
 }
 
@@ -760,13 +759,8 @@
 	}
 
 	.mobile-taskbar-container {
-		bottom: 15px;
 		height: 45px;
 		max-width: 90%;
-	}
-
-	.mobile-button-container {
-		bottom: 5px;
 	}
 
 	.mobile-home-button {

@@ -365,14 +365,6 @@ function App() {
 								</div>
 							</div>
 						</div>
-						<div className="mobile-taskbar-container" ref={appsTaskBarParentRef}>
-							{openedApps.map((appRef, index) => {
-								return <TaskBarAppDisplay key={appRef?.appearence?.title || index} appRef={appRef} />;
-							})}
-						</div>
-						<div className="mobile-button-container">
-							<button className="mobile-home-button" onClick={handleToggleScreen}></button>
-						</div>
 					</div>
 				)}
 			</div>
