@@ -813,3 +813,83 @@
 	padding: 4px;
 	touch-action: manipulation;
 }
+
+/* Ajustes específicos para MyPc no mobile */
+.mobile-main .my-pc-renderer-container {
+	padding: 8px;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.mobile-main .my-pc-renderer-title {
+	font-size: 18px !important;
+}
+
+.mobile-main .my-pc-title {
+	font-size: 14px !important;
+}
+
+.mobile-main .my-pc-title-2 {
+	font-size: 12px !important;
+}
+
+.mobile-main .my-pc-info-container {
+	flex-direction: column !important;
+	row-gap: 10px !important;
+	text-align: center !important;
+}
+
+.mobile-main .my-pc-info-container img {
+	max-width: 100px !important;
+	max-height: 100px !important;
+	width: auto !important;
+	height: auto !important;
+}
+
+.mobile-main .my-pc-title2-container {
+	align-items: center !important;
+	text-align: center !important;
+}
+
+.mobile-main .my-pc-info-container-2 {
+	flex-direction: column !important;
+	align-items: center !important;
+	text-align: center !important;
+}
+
+.mobile-main .my-pc-title3-container {
+	text-align: center !important;
+	align-items: center !important;
+	font-size: 11px !important;
+}
+
+.mobile-main .my-pc-setup-info-container {
+	font-size: 11px !important;
+	text-align: center !important;
+}
+
+.mobile-main .my-pc-info-container img[src*="thinkpad"] {
+	max-width: 180px !important;
+	max-height: 110px !important;
+	width: auto !important;
+	height: auto !important;
+}
+
+.mobile-main .my-pc-info-father-container,
+.mobile-main .my-pc-info-father2-container {
+	margin: 10px !important;
+}
+
+.mobile-main .my-pc-renderer-container-2 {
+	width: 98% !important;
+}
+
+.mobile-main .my-pc-renderer-title-container {
+	width: 98% !important;
+}
+
+.mobile-main .my-pc-config-button-container {
+	width: 98% !important;
+	justify-content: center !important;
+	margin-top: 10px;
+}

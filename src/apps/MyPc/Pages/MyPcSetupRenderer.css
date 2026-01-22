@@ -56,3 +56,54 @@
     display: flex;
     margin: 20px;
 }
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+	.my-pc-renderer-container {
+		padding: 10px;
+	}
+
+	.my-pc-renderer-title {
+		font-size: 20px !important;
+	}
+
+	.my-pc-info-container {
+		flex-direction: column;
+		row-gap: 15px;
+		text-align: center;
+		align-items: center;
+	}
+
+	.my-pc-info-container img {
+		width: 180px !important;
+		height: 110px !important;
+	}
+
+	.my-pc-title3-container {
+		text-align: center !important;
+		align-items: center !important;
+		font-size: 11px !important;
+	}
+
+	.my-pc-setup-info-container {
+		font-size: 11px !important;
+		text-align: center;
+	}
+
+	.my-pc-info-father-container {
+		margin: 15px !important;
+	}
+
+	.my-pc-info-father2-container {
+		margin: 15px !important;
+		justify-content: center;
+	}
+
+	.my-pc-renderer-container-2 {
+		width: 95% !important;
+	}
+
+	.my-pc-renderer-title-container {
+		width: 95% !important;
+	}
+}
