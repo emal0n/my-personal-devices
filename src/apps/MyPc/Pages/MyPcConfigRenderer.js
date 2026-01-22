@@ -26,7 +26,7 @@ function MyPcConfigRenderer({ appRef }) {
 					<div className="my-pc-info-container-2">
 						<div className="my-pc-title2-container">
 							<a className="my-pc-title-2">Stacks:</a>
-							<a>java, python, node, spring, sql, nextjs, react, angular, typescript, flutter</a>
+							<a>java, python, node, spring, sql, nosql, nextjs, react, angular, typescript, flutter</a>
 						</div>
 					</div>
 				</div>
