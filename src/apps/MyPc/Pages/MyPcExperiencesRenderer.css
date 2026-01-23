@@ -1,0 +1,213 @@
+.my-pc-renderer-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 10px 0;
+}
+
+.my-pc-renderer-container-2 {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	background-color: #0a0a0a;
+	border: 2px solid #39ff14;
+	box-shadow: 
+		inset 0 0 15px rgba(57, 255, 20, 0.2),
+		0 0 20px rgba(57, 255, 20, 0.4);
+	position: relative;
+	z-index: 2;
+	margin-bottom: 15px;
+	margin-top: 0;
+}
+
+.my-pc-renderer-title-container {
+	display: flex;
+	width: 90%;
+	margin-bottom: 10px;
+}
+
+.my-pc-renderer-title-container a {
+	color: #39ff14;
+	text-shadow: 
+		0 0 10px #39ff14,
+		0 0 20px #39ff14,
+		0 0 30px #39ff14;
+	font-family: "Courier New", monospace;
+}
+
+.my-pc-renderer-title {
+	font-size: 30px;
+	text-align: right;
+	font-family: "Courier New", monospace;
+	font-weight: 400;
+	color: #39ff14;
+	text-shadow: 
+		0 0 10px #39ff14,
+		0 0 20px #39ff14,
+		0 0 30px #39ff14;
+}
+
+.my-pc-setup-info-container {
+	font-weight: bold;
+	font-size: 13px;
+	color: #39ff14 !important;
+	text-shadow: 0 0 10px #39ff14;
+	font-family: "Courier New", monospace;
+	line-height: 1.6;
+	text-align: left;
+	width: 100%;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	position: relative;
+	z-index: 3;
+}
+
+.my-pc-setup-info-container strong {
+	font-weight: bold;
+	color: #39ff14 !important;
+	text-shadow: 0 0 15px #39ff14;
+}
+
+.my-pc-info-father-container {
+	margin: 20px;
+}
+
+.my-pc-info-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 20px;
+}
+
+.my-pc-info-container img {
+	filter: 
+		brightness(0.8) 
+		contrast(1.2) 
+		sepia(1) 
+		hue-rotate(60deg) 
+		saturate(2);
+	border: 2px solid #39ff14;
+	box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+}
+
+/* Fundo verde Fallout para o container da logo Android */
+.my-pc-thinkpad-container {
+	background-color: rgba(57, 255, 20, 0.15);
+	border: 2px solid #39ff14;
+	box-shadow: 
+		inset 0 0 20px rgba(57, 255, 20, 0.3),
+		0 0 15px rgba(57, 255, 20, 0.5);
+	padding: 10px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.my-pc-title3-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	font-weight: bold;
+	font-size: 13px;
+	text-align: left;
+	color: #39ff14;
+	text-shadow: 0 0 10px #39ff14;
+	font-family: "Courier New", monospace;
+}
+
+.my-pc-info-father2-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 3;
+}
+
+.my-pc-renderer-container a,
+.my-pc-renderer-container div {
+	color: #39ff14;
+	text-shadow: 0 0 5px #39ff14;
+	font-family: "Courier New", monospace;
+}
+
+/* Estilizar scrollbar no estilo Pip-Boy */
+.my-pc-renderer-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+.my-pc-renderer-container::-webkit-scrollbar-track {
+	background: #0a0a0a;
+	border-left: 1px solid #39ff14;
+}
+
+.my-pc-renderer-container::-webkit-scrollbar-thumb {
+	background: rgba(57, 255, 20, 0.3);
+	border: 1px solid #39ff14;
+	box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+.my-pc-renderer-container::-webkit-scrollbar-thumb:hover {
+	background: rgba(57, 255, 20, 0.5);
+	box-shadow: 0 0 15px rgba(57, 255, 20, 0.7);
+}
+
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+	.my-pc-renderer-container {
+		padding: 10px;
+	}
+
+	.my-pc-renderer-title {
+		font-size: 20px !important;
+	}
+
+	.my-pc-setup-info-container {
+		font-size: 11px !important;
+		text-align: center;
+	}
+
+	.my-pc-info-container {
+		flex-direction: column;
+		row-gap: 15px;
+		text-align: center;
+		align-items: center;
+	}
+
+	.my-pc-info-container img {
+		width: 180px !important;
+		height: 110px !important;
+	}
+
+	.my-pc-title3-container {
+		text-align: center !important;
+		align-items: center !important;
+		font-size: 11px !important;
+	}
+
+	.my-pc-info-father-container {
+		margin: 15px !important;
+	}
+
+	.my-pc-info-father2-container {
+		margin: 15px !important;
+		justify-content: center;
+	}
+
+	.my-pc-renderer-container-2 {
+		width: 95% !important;
+	}
+
+	.my-pc-renderer-title-container {
+		width: 95% !important;
+	}
+}

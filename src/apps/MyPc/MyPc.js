@@ -4,7 +4,7 @@ import AppCore from "../AppCore";
 
 import MyPcConfigRenderer from "./Pages/MyPcConfigRenderer";
 import MyPcSetupRenderer from "./Pages/MyPcSetupRenderer";
-import MyPcSleeperRenderer from "./Pages/MyPcSleeperRenderer";
+import MyPcExperiencesRenderer from "./Pages/MyPcExperiencesRenderer";
 
 const MyPc = React.forwardRef(({ iconX, iconY, parentRef, ...others }, ref) => {
 	return (
@@ -12,7 +12,7 @@ const MyPc = React.forwardRef(({ iconX, iconY, parentRef, ...others }, ref) => {
 			AppRenderer={{
 				config: MyPcConfigRenderer,
 				setup: MyPcSetupRenderer,
-				sleeper: MyPcSleeperRenderer,
+				experiences: MyPcExperiencesRenderer,
 			}}
 			iconX={iconX}
 			iconY={iconY}
@@ -26,7 +26,7 @@ const MyPc = React.forwardRef(({ iconX, iconY, parentRef, ...others }, ref) => {
 			ref={ref}
 			parentRef={parentRef}
 			overflowY="hidden"
-			options={["config", "setup", "sleeper"]}
+			options={["config", "setup", "experiences"]}
 			initialOption="config"
 			{...others}
 		/>
